@@ -101,22 +101,22 @@ position = Vector2(0, -284)
 shape = SubResource("RectangleShape2D_ceiling")
 
 [node name="Player" parent="." instance=ExtResource("1_player")]
-position = Vector2(-200, -48)
+position = Vector2(-200, 0)
 
 [node name="CaptainAldric" parent="." instance=ExtResource("2_npc")]
-position = Vector2(-500, -48)
+position = Vector2(-500, 0)
 npc_id = "captain_aldric"
 display_name = "Captain Aldric"
 npc_color = Color(0.7, 0.2, 0.2, 1)
 
 [node name="LordHarlan" parent="." instance=ExtResource("2_npc")]
-position = Vector2(300, -48)
+position = Vector2(300, 0)
 npc_id = "lord_harlan"
 display_name = "Lord Harlan"
 npc_color = Color(0.4, 0.2, 0.5, 1)
 
 [node name="ServantMira" parent="." instance=ExtResource("2_npc")]
-position = Vector2(600, -48)
+position = Vector2(600, 0)
 npc_id = "servant_mira"
 display_name = "Mira"
 npc_color = Color(0.5, 0.4, 0.3, 1)

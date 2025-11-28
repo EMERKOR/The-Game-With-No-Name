@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var dialogue_start_node: String = "start"
 @export var npc_color: Color = Color(0.5, 0.5, 0.5, 1.0)
 
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var body: ColorRect = $Body
 @onready var name_label: Label = $NameLabel
 @onready var prompt_label: Label = $PromptLabel
 
@@ -15,8 +15,7 @@ func _ready() -> void:
 	add_to_group("interactable")
 	name_label.text = display_name
 	prompt_label.visible = false
-	sprite.play("idle")
-	sprite.modulate = npc_color
+	body.color = npc_color
 
 func on_interact(_player: Node) -> void:
 	# Check for mission-specific dialogue first

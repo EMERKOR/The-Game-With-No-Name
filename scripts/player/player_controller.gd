@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @export var move_speed: float = 200.0
 
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interaction_area: Area2D = $InteractionArea
 
 var can_move: bool = true
@@ -20,8 +19,6 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if not can_move:
 		velocity = Vector2.ZERO
-		if sprite.animation != "idle":
-			sprite.play("idle")
 		return
 
 	var direction = Input.get_axis("move_left", "move_right")
@@ -29,13 +26,10 @@ func _physics_process(_delta: float) -> void:
 	if direction != 0:
 		velocity.x = direction * move_speed
 		facing_right = direction > 0
-		sprite.flip_h = not facing_right
-		if sprite.animation != "walk":
-			sprite.play("walk")
+		# Flip the character visually by scaling
+		scale.x = 1 if facing_right else -1
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
-		if sprite.animation != "idle":
-			sprite.play("idle")
 
 	move_and_slide()
 
