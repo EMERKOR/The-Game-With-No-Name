@@ -1,0 +1,121 @@
+{
+    "npc_id": "lord_harlan",
+    "nodes": {
+        "start": {
+            "speaker": "Lord Harlan",
+            "text": "[He barely glances at you] Yes? What is it? I'm quite busy.",
+            "choices": [
+                {
+                    "text": "My lord, I'm investigating the chapel theft. May I ask you some questions?",
+                    "next": "investigation_request"
+                },
+                {
+                    "text": "Apologies for disturbing you, my lord. I'll return later.",
+                    "next": "polite_exit"
+                },
+                {
+                    "text": "I need to speak with you. It's about a crime.",
+                    "next": "direct_approach"
+                }
+            ]
+        },
+        "investigation_request": {
+            "speaker": "Lord Harlan",
+            "text": "The candlesticks? And they sent an initiate to question a lord? [He sighs] Very well. Ask your questions. But be quick — time spent with you is time wasted.",
+            "trust_changes": {"lord_harlan": -5},
+            "choices": [
+                {
+                    "text": "Were you in the chapel the night of the theft?",
+                    "next": "alibi_question"
+                },
+                {
+                    "text": "Your page was seen near the chapel that night.",
+                    "next": "page_accusation"
+                },
+                {
+                    "text": "Thank you for your time, my lord.",
+                    "next": "polite_exit"
+                }
+            ]
+        },
+        "alibi_question": {
+            "speaker": "Lord Harlan",
+            "text": "I was in my chambers, entertaining guests. Lord Vance and Lady Merideth can confirm, if you dare question them as well. Is that sufficient, or do you need a sworn statement?",
+            "choices": [
+                {
+                    "text": "That's sufficient. Thank you, my lord.",
+                    "next": "polite_exit"
+                },
+                {
+                    "text": "Your page was seen there. Where was he?",
+                    "next": "page_question"
+                }
+            ]
+        },
+        "page_accusation": {
+            "speaker": "Lord Harlan",
+            "text": "[His eyes narrow] Are you accusing my household of theft? Choose your next words very carefully, initiate.",
+            "choices": [
+                {
+                    "text": "I'm not accusing anyone. I'm gathering information.",
+                    "next": "backpedal"
+                },
+                {
+                    "text": "I go where the evidence leads, my lord.",
+                    "next": "bold_response",
+                    "trust_changes": {"lord_harlan": -15, "captain_aldric": 5}
+                }
+            ]
+        },
+        "page_question": {
+            "speaker": "Lord Harlan",
+            "text": "Thomin? He runs errands for me. Perhaps I sent him to light a candle for my late father. Is prayer now a crime?",
+            "next": ""
+        },
+        "backpedal": {
+            "speaker": "Lord Harlan",
+            "text": "See that you continue to do so. Carefully. [He returns to his papers] We're done here.",
+            "next": ""
+        },
+        "bold_response": {
+            "speaker": "Lord Harlan",
+            "text": "Evidence. [A cold smile] Then find some. Real evidence. And when you don't, we'll discuss the consequences of wasting my time.",
+            "next": ""
+        },
+        "polite_exit": {
+            "speaker": "Lord Harlan",
+            "text": "[He waves dismissively] Yes, yes. Close the door on your way out.",
+            "next": ""
+        },
+        "direct_approach": {
+            "speaker": "Lord Harlan",
+            "text": "A crime. How dramatic. [He leans back] I assume you mean the chapel theft everyone's whispering about. What of it?",
+            "next": "investigation_request"
+        },
+        "greeting_hostile": {
+            "speaker": "Lord Harlan",
+            "text": "You again. I thought I made myself clear — I have no interest in speaking with you.",
+            "choices": [
+                {
+                    "text": "My apologies, my lord. I'll leave.",
+                    "next": "hostile_exit"
+                },
+                {
+                    "text": "This is important, my lord, whether you wish to speak or not.",
+                    "next": "hostile_insist",
+                    "trust_changes": {"lord_harlan": -10}
+                }
+            ]
+        },
+        "hostile_exit": {
+            "speaker": "Lord Harlan",
+            "text": "At least you learn. Go.",
+            "next": ""
+        },
+        "hostile_insist": {
+            "speaker": "Lord Harlan",
+            "text": "Your persistence borders on insolence. Speak quickly, then get out of my sight.",
+            "next": ""
+        }
+    }
+}

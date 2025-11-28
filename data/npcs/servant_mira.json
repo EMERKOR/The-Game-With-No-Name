@@ -1,0 +1,11 @@
+{
+    "id": "servant_mira",
+    "name": "Mira",
+    "title": "Castle Servant",
+    "faction_public": "commoners",
+    "personality": {
+        "traits": ["nervous", "kind", "desperate"],
+        "values": ["family", "survival", "honesty"]
+    },
+    "description": "A young servant woman struggling to support her sick mother. She cleans the chapel and other areas of the castle, giving her access to places others cannot go."
+}

@@ -1,0 +1,167 @@
+{
+    "npc_id": "captain_aldric",
+    "nodes": {
+        "start": {
+            "speaker": "Captain Aldric",
+            "text": "Erwin. You're the new initiate, aren't you? I've read your file. Decent marks in training, nothing exceptional. But marks don't make a guardsman.",
+            "choices": [
+                {
+                    "text": "I'm ready to prove myself, Captain.",
+                    "next": "eager_response",
+                    "trust_changes": {"captain_aldric": 5}
+                },
+                {
+                    "text": "What does make a guardsman, then?",
+                    "next": "question_response"
+                },
+                {
+                    "text": "I'll do my duty, sir.",
+                    "next": "neutral_response"
+                }
+            ]
+        },
+        "eager_response": {
+            "speaker": "Captain Aldric",
+            "text": "Eager. Good. Eagerness can get you killed, but it's better than the alternative. I have something for you — your first real task.",
+            "next": "first_mission_offer"
+        },
+        "question_response": {
+            "speaker": "Captain Aldric",
+            "text": "A fair question. Loyalty. Judgment. Knowing when to follow orders and when to think for yourself. The second one will get you in trouble someday.",
+            "choices": [
+                {
+                    "text": "I understand, Captain.",
+                    "next": "first_mission_offer"
+                },
+                {
+                    "text": "When would thinking for myself be appropriate?",
+                    "next": "philosophy_response",
+                    "trust_changes": {"captain_aldric": 5}
+                }
+            ]
+        },
+        "neutral_response": {
+            "speaker": "Captain Aldric",
+            "text": "Duty. Yes. We'll see how you handle it. I have a task for you.",
+            "next": "first_mission_offer"
+        },
+        "philosophy_response": {
+            "speaker": "Captain Aldric",
+            "text": "When the order is wrong, and you know it's wrong, and following it would make you something you don't want to be. But be careful — that's a judgment call, and you won't always be right.",
+            "next": "first_mission_offer"
+        },
+        "first_mission_offer": {
+            "speaker": "Captain Aldric",
+            "text": "There's been a theft in the castle. Nothing valuable — just some silver candlesticks from the chapel. But theft is theft, and the priests are upset. Find out who did it. Report back to me. Don't make accusations without evidence.",
+            "choices": [
+                {
+                    "text": "I'll find the thief, Captain.",
+                    "next": "mission_accepted",
+                    "effects": {"start_mission": "chapel_theft"}
+                },
+                {
+                    "text": "Where should I start looking?",
+                    "next": "mission_hint"
+                }
+            ]
+        },
+        "mission_hint": {
+            "speaker": "Captain Aldric",
+            "text": "The servants have access. So do some of the lesser nobles who use the chapel. And there's always the tunnels — though officially, we don't talk about those. Start with questions. Watch who gets nervous.",
+            "choices": [
+                {
+                    "text": "Understood. I'll begin immediately.",
+                    "next": "mission_accepted",
+                    "effects": {"start_mission": "chapel_theft"}
+                }
+            ]
+        },
+        "mission_accepted": {
+            "speaker": "Captain Aldric",
+            "text": "Good. Don't disappoint me, Erwin.",
+            "next": ""
+        },
+        "mission_report": {
+            "speaker": "Captain Aldric",
+            "text": "You're back. What have you found?",
+            "choices": [
+                {
+                    "text": "I'm still investigating, Captain.",
+                    "next": "still_investigating"
+                },
+                {
+                    "text": "I believe Mira the servant took them, but she needed the money for medicine.",
+                    "next": "accuse_mira_sympathetic"
+                },
+                {
+                    "text": "The servant Mira is the thief. I have evidence.",
+                    "next": "accuse_mira_direct"
+                }
+            ]
+        },
+        "still_investigating": {
+            "speaker": "Captain Aldric",
+            "text": "Then why are you here? Go. Investigate.",
+            "next": ""
+        },
+        "accuse_mira_sympathetic": {
+            "speaker": "Captain Aldric",
+            "text": "Medicine, you say. Hmm. The priests want justice. But justice isn't always punishment. I could... lose the report. The candlesticks could reappear. No one needs to know. Is that what you're asking?",
+            "choices": [
+                {
+                    "text": "Yes. She made a mistake, but she's not a criminal.",
+                    "next": "cover_up_ending",
+                    "trust_changes": {"captain_aldric": 10, "servant_mira": 25},
+                    "effects": {"complete_mission": "chapel_theft", "coins": 20}
+                },
+                {
+                    "text": "No, the law is the law. She must face consequences.",
+                    "next": "strict_ending",
+                    "trust_changes": {"captain_aldric": 5, "servant_mira": -30},
+                    "effects": {"complete_mission": "chapel_theft", "coins": 30}
+                }
+            ]
+        },
+        "accuse_mira_direct": {
+            "speaker": "Captain Aldric",
+            "text": "Evidence. Good. She'll be dismissed, possibly imprisoned. The priests will be satisfied. You've done your duty, Erwin.",
+            "trust_changes": {"captain_aldric": 5, "servant_mira": -40},
+            "effects": {"complete_mission": "chapel_theft", "coins": 30},
+            "next": ""
+        },
+        "cover_up_ending": {
+            "speaker": "Captain Aldric",
+            "text": "You have a conscience. That's... complicated. But not unwelcome. I'll handle this quietly. The candlesticks will find their way back. Now go — and forget we had this conversation.",
+            "next": ""
+        },
+        "strict_ending": {
+            "speaker": "Captain Aldric",
+            "text": "The law is the law. You're right, of course. I'll have her brought in. Justice will be served.",
+            "next": ""
+        },
+        "greeting_allied": {
+            "speaker": "Captain Aldric",
+            "text": "Erwin. Good to see you. What brings you to me today?",
+            "choices": [
+                {
+                    "text": "Just checking in, Captain.",
+                    "next": "casual_chat"
+                },
+                {
+                    "text": "Do you have any work for me?",
+                    "next": "request_work"
+                }
+            ]
+        },
+        "casual_chat": {
+            "speaker": "Captain Aldric",
+            "text": "Checking in. Good instinct. A guard who keeps his commander informed is a guard who stays alive. Anything to report?",
+            "next": ""
+        },
+        "request_work": {
+            "speaker": "Captain Aldric",
+            "text": "Always more work than men to do it. Let me see what needs doing...",
+            "next": ""
+        }
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "id": "chapel_theft",
+    "name": "The Chapel Theft",
+    "description": "Silver candlesticks have been stolen from the castle chapel. Captain Aldric has assigned you to investigate.",
+    "giver": "captain_aldric",
+    "objectives": [
+        {
+            "id": "investigate",
+            "description": "Investigate the theft by questioning suspects",
+            "required": true
+        },
+        {
+            "id": "find_evidence",
+            "description": "Find evidence of who committed the theft",
+            "required": false
+        },
+        {
+            "id": "report_back",
+            "description": "Report your findings to Captain Aldric",
+            "required": true
+        }
+    ],
+    "outcomes": {
+        "cover_up": {
+            "description": "You convinced the Captain to cover up Mira's theft",
+            "rewards": {
+                "coins": 20
+            },
+            "trust_changes": {
+                "captain_aldric": 10,
+                "servant_mira": 25
+            }
+        },
+        "strict_justice": {
+            "description": "You reported Mira and she faced justice",
+            "rewards": {
+                "coins": 30
+            },
+            "trust_changes": {
+                "captain_aldric": 5,
+                "servant_mira": -30
+            }
+        },
+        "direct_accusation": {
+            "description": "You directly accused Mira without seeking leniency",
+            "rewards": {
+                "coins": 30
+            },
+            "trust_changes": {
+                "captain_aldric": 5,
+                "servant_mira": -40
+            }
+        }
+    }
+}

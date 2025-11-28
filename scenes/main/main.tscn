@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://main_scene"]
+
+[ext_resource type="Script" path="res://scripts/main/main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://dialogue_box_scene" path="res://scenes/ui/dialogue_box.tscn" id="2_dialogue"]
+[ext_resource type="PackedScene" uid="uid://combat_ui_scene" path="res://scenes/ui/combat_ui.tscn" id="3_combat"]
+[ext_resource type="PackedScene" uid="uid://hud_scene" path="res://scenes/ui/hud.tscn" id="4_hud"]
+[ext_resource type="PackedScene" uid="uid://castle_interior_scene" path="res://scenes/levels/castle_interior.tscn" id="5_level"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(1, 1, 1, 1)
+
+[node name="CurrentLevel" type="Node2D" parent="."]
+
+[node name="CastleInterior" parent="CurrentLevel" instance=ExtResource("5_level")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 5.0
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UILayer" instance=ExtResource("4_hud")]
+
+[node name="DialogueUI" parent="UILayer" instance=ExtResource("2_dialogue")]
+
+[node name="CombatUI" parent="UILayer" instance=ExtResource("3_combat")]

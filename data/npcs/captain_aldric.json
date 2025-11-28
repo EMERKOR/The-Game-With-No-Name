@@ -1,0 +1,11 @@
+{
+    "id": "captain_aldric",
+    "name": "Captain Aldric",
+    "title": "Captain of the Guard",
+    "faction_public": "crown_loyalists",
+    "personality": {
+        "traits": ["disciplined", "fair", "pragmatic"],
+        "values": ["duty", "honor", "order"]
+    },
+    "description": "A veteran soldier who rose through the ranks. He believes in the system but has seen enough to know it's imperfect. He judges men by their actions, not their birth."
+}
