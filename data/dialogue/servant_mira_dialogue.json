@@ -1,0 +1,184 @@
+{
+    "npc_id": "servant_mira",
+    "nodes": {
+        "start": {
+            "speaker": "Mira",
+            "text": "Oh! Sir knight. I'm sorry, I didn't see you there. Is there... is there something you need?",
+            "choices": [
+                {
+                    "text": "I'm investigating the chapel theft. Do you know anything?",
+                    "next": "theft_question"
+                },
+                {
+                    "text": "Just passing through. How are you?",
+                    "next": "friendly_chat",
+                    "trust_changes": {"servant_mira": 5}
+                },
+                {
+                    "text": "Out of my way, servant.",
+                    "next": "rude_response",
+                    "trust_changes": {"servant_mira": -10}
+                }
+            ]
+        },
+        "theft_question": {
+            "speaker": "Mira",
+            "text": "The... the theft? I heard about it, of course. Everyone's talking. Those candlesticks. I don't know anything about it, sir. I clean the chapel sometimes, but I would never—",
+            "choices": [
+                {
+                    "text": "You seem nervous. Is there something you want to tell me?",
+                    "next": "nervous_response"
+                },
+                {
+                    "text": "I'm not accusing you. I'm asking if you saw anything.",
+                    "next": "reassure_response",
+                    "trust_changes": {"servant_mira": 5}
+                },
+                {
+                    "text": "The guilty always protest too much.",
+                    "next": "accusation_response",
+                    "trust_changes": {"servant_mira": -15}
+                }
+            ]
+        },
+        "nervous_response": {
+            "speaker": "Mira",
+            "text": "I... I'm always nervous around knights. You have swords. And authority. And... please, sir. My mother is sick. If I lose this position...",
+            "choices": [
+                {
+                    "text": "What does your mother have to do with the theft?",
+                    "next": "confession_lead"
+                },
+                {
+                    "text": "I understand. I grew up common too.",
+                    "next": "sympathy_response",
+                    "trust_changes": {"servant_mira": 15}
+                }
+            ]
+        },
+        "confession_lead": {
+            "speaker": "Mira",
+            "text": "Nothing! I... I just... [she breaks down] I needed the money. For medicine. I was going to pay it back, I swear. I know where to sell things, from before I worked here. Please. Please don't tell them.",
+            "choices": [
+                {
+                    "text": "Where are the candlesticks now?",
+                    "next": "evidence_location"
+                },
+                {
+                    "text": "I have to report what I've learned.",
+                    "next": "must_report",
+                    "trust_changes": {"servant_mira": -20}
+                },
+                {
+                    "text": "Maybe we can figure something out.",
+                    "next": "help_offer",
+                    "trust_changes": {"servant_mira": 20}
+                }
+            ]
+        },
+        "evidence_location": {
+            "speaker": "Mira",
+            "text": "I haven't sold them yet. They're hidden in the servants' quarters, under a loose board near my bed. I couldn't... I couldn't do it. They're so beautiful, and they're meant for God.",
+            "next": "evidence_obtained"
+        },
+        "evidence_obtained": {
+            "speaker": "Mira",
+            "text": "What will you do, sir knight? My fate is in your hands.",
+            "next": ""
+        },
+        "must_report": {
+            "speaker": "Mira",
+            "text": "I understand. I knew... I knew this would happen eventually. Do what you must, sir.",
+            "next": ""
+        },
+        "help_offer": {
+            "speaker": "Mira",
+            "text": "You... you would help me? Why? I'm just a servant. I'm nothing.",
+            "choices": [
+                {
+                    "text": "Everyone deserves a chance to make things right.",
+                    "next": "noble_response"
+                },
+                {
+                    "text": "Maybe someday you can return the favor.",
+                    "next": "pragmatic_response"
+                }
+            ]
+        },
+        "noble_response": {
+            "speaker": "Mira",
+            "text": "I've never met a knight like you. Thank you. I'll return the candlesticks — put them somewhere they'll be found. And I'll find another way to help my mother. Somehow.",
+            "next": ""
+        },
+        "pragmatic_response": {
+            "speaker": "Mira",
+            "text": "I'm just a servant, but... servants hear things. See things. If you ever need information, I can be your eyes and ears in places knights don't go.",
+            "trust_changes": {"servant_mira": 10},
+            "next": ""
+        },
+        "reassure_response": {
+            "speaker": "Mira",
+            "text": "I... thank you for saying that. I did see something, actually. Lord Harlan's page was in the chapel that night. Late. I thought it was strange.",
+            "next": ""
+        },
+        "accusation_response": {
+            "speaker": "Mira",
+            "text": "[Her face hardens] Then you've already decided, haven't you? What does it matter what I say? Do what you came to do, knight.",
+            "next": ""
+        },
+        "friendly_chat": {
+            "speaker": "Mira",
+            "text": "You're... asking how I am? That's kind of you, sir. I'm well enough. Tired — there's always more work than hands — but I shouldn't complain.",
+            "next": ""
+        },
+        "rude_response": {
+            "speaker": "Mira",
+            "text": "Yes, sir. Of course, sir. [She steps aside, eyes downcast]",
+            "next": ""
+        },
+        "sympathy_response": {
+            "speaker": "Mira",
+            "text": "You did? But you're a knight now. You made it out. I thought... I thought all knights were born to it.",
+            "choices": [
+                {
+                    "text": "My family had nothing. I earned my place through training and luck.",
+                    "next": "backstory_share",
+                    "trust_changes": {"servant_mira": 10}
+                },
+                {
+                    "text": "That's not important right now. The theft?",
+                    "next": "theft_redirect"
+                }
+            ]
+        },
+        "backstory_share": {
+            "speaker": "Mira",
+            "text": "Then maybe there's hope for my brother. He's clever — cleverer than me. Maybe he could train, like you did? [She pauses] I'm sorry. You didn't come here for my family troubles.",
+            "next": ""
+        },
+        "theft_redirect": {
+            "speaker": "Mira",
+            "text": "Right. The theft. [Her nervousness returns] I really don't know anything, sir.",
+            "next": ""
+        },
+        "greeting_hostile": {
+            "speaker": "Mira",
+            "text": "[She avoids your eyes] Sir knight. What do you want?",
+            "choices": [
+                {
+                    "text": "I just wanted to talk.",
+                    "next": "hostile_talk"
+                },
+                {
+                    "text": "Nothing. Never mind.",
+                    "next": ""
+                }
+            ]
+        },
+        "hostile_talk": {
+            "speaker": "Mira",
+            "text": "Talk? After what you did? I don't think we have anything to say to each other.",
+            "next": ""
+        }
+    }
+}

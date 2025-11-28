@@ -1,0 +1,132 @@
+[gd_scene load_steps=7 format=3 uid="uid://castle_interior_scene"]
+
+[ext_resource type="PackedScene" uid="uid://blxwvn1yx8e4j" path="res://scenes/player/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://chnpc1yx8e4j" path="res://scenes/npcs/npc.tscn" id="2_npc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
+size = Vector2(2000, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_left"]
+size = Vector2(32, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall_right"]
+size = Vector2(32, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ceiling"]
+size = Vector2(2000, 32)
+
+[node name="CastleInterior" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -1000.0
+offset_top = -300.0
+offset_right = 1000.0
+offset_bottom = 100.0
+color = Color(0.15, 0.12, 0.1, 1)
+
+[node name="Floor" type="ColorRect" parent="."]
+offset_left = -1000.0
+offset_top = 0.0
+offset_right = 1000.0
+offset_bottom = 100.0
+color = Color(0.3, 0.25, 0.2, 1)
+
+[node name="FloorPattern" type="ColorRect" parent="Floor"]
+offset_left = 0.0
+offset_top = 5.0
+offset_right = 2000.0
+offset_bottom = 15.0
+color = Color(0.25, 0.2, 0.15, 1)
+
+[node name="WallLeft" type="ColorRect" parent="."]
+offset_left = -1000.0
+offset_top = -300.0
+offset_right = -968.0
+offset_bottom = 100.0
+color = Color(0.35, 0.3, 0.25, 1)
+
+[node name="WallRight" type="ColorRect" parent="."]
+offset_left = 968.0
+offset_top = -300.0
+offset_right = 1000.0
+offset_bottom = 100.0
+color = Color(0.35, 0.3, 0.25, 1)
+
+[node name="Ceiling" type="ColorRect" parent="."]
+offset_left = -1000.0
+offset_top = -300.0
+offset_right = 1000.0
+offset_bottom = -268.0
+color = Color(0.25, 0.2, 0.15, 1)
+
+[node name="Torch1" type="ColorRect" parent="."]
+offset_left = -400.0
+offset_top = -150.0
+offset_right = -380.0
+offset_bottom = -100.0
+color = Color(0.9, 0.6, 0.2, 1)
+
+[node name="Torch2" type="ColorRect" parent="."]
+offset_left = 0.0
+offset_top = -150.0
+offset_right = 20.0
+offset_bottom = -100.0
+color = Color(0.9, 0.6, 0.2, 1)
+
+[node name="Torch3" type="ColorRect" parent="."]
+offset_left = 400.0
+offset_top = -150.0
+offset_right = 420.0
+offset_bottom = -100.0
+color = Color(0.9, 0.6, 0.2, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 2
+
+[node name="FloorCollision" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_floor")
+
+[node name="WallLeftCollision" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-984, -100)
+shape = SubResource("RectangleShape2D_wall_left")
+
+[node name="WallRightCollision" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(984, -100)
+shape = SubResource("RectangleShape2D_wall_right")
+
+[node name="CeilingCollision" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -284)
+shape = SubResource("RectangleShape2D_ceiling")
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(-200, -48)
+
+[node name="CaptainAldric" parent="." instance=ExtResource("2_npc")]
+position = Vector2(-500, -48)
+npc_id = "captain_aldric"
+display_name = "Captain Aldric"
+npc_color = Color(0.7, 0.2, 0.2, 1)
+
+[node name="LordHarlan" parent="." instance=ExtResource("2_npc")]
+position = Vector2(300, -48)
+npc_id = "lord_harlan"
+display_name = "Lord Harlan"
+npc_color = Color(0.4, 0.2, 0.5, 1)
+
+[node name="ServantMira" parent="." instance=ExtResource("2_npc")]
+position = Vector2(600, -48)
+npc_id = "servant_mira"
+display_name = "Mira"
+npc_color = Color(0.5, 0.4, 0.3, 1)
+
+[node name="LocationLabel" type="Label" parent="."]
+offset_left = -100.0
+offset_top = -280.0
+offset_right = 100.0
+offset_bottom = -250.0
+theme_override_colors/font_color = Color(0.8, 0.75, 0.6, 1)
+theme_override_font_sizes/font_size = 18
+text = "Castle Great Hall"
+horizontal_alignment = 1

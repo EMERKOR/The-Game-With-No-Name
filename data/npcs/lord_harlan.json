@@ -1,0 +1,11 @@
+{
+    "id": "lord_harlan",
+    "name": "Lord Harlan",
+    "title": "Lord of Westmarch",
+    "faction_public": "nobility",
+    "personality": {
+        "traits": ["arrogant", "cunning", "dismissive"],
+        "values": ["status", "power", "tradition"]
+    },
+    "description": "A noble who views those beneath his station as tools to be used. He's politically savvy and dangerous when crossed."
+}
